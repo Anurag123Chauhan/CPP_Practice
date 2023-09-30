@@ -47,18 +47,27 @@ int fact(int n){
         return n*fact(n-1);
     }
 }
-// int fibo(){
-    
-// }
+int fibo(int n){
+    if(n==0){
+        return 0;
+    }
+    else if(n==1||n==2){
+
+        return 1;
+    }
+    else{
+        return fibo(n-1)+fibo(n-2);
+    }
+}
 int main(){
 
     int n,p;
-    cin>>n>>p;
+    cin>>n;
     // int s=sum(n);
     // int s=print(n);
     // printIncreasing(n);
-    long long s=pow(n,p);
-    cout<<s;
-    // cout<<s<<endl;
+    // long long s=pow(n,p);
+    int s=fibo(n);
+    cout<<s<<endl;
     return 0;
 }
