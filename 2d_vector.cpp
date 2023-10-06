@@ -39,7 +39,7 @@ int main(){
 	int num_row = 4;
 
 	// Initializing a single row
-	vector<int> row(num_col, 0);
+	vector<int> row(num_col, 1);
 
 	// Initializing the 2-D vector
 	vector<vector<int>> v(num_row, row) ;
@@ -50,3 +50,4 @@ int main(){
 		cout<<endl;
 	}					   
 }
+// end
