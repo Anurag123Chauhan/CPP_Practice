@@ -70,8 +70,38 @@ class Linked_lst{
         Node * n=new Node(ele);
         if(head==NULL){
             head=tail=n;
+            return;
         }
-        
+        int co=1;
+        Node * temp=head;
+        while(co!=pos-1){
+            temp=temp->next;
+            co++;
+        }
+        Node * temp2=temp->next;
+        temp->next=n;
+        n->next=temp2;
+    }
+
+    void delete_at_k(int pos){
+        if(head==NULL){
+            cout<<"List is empty"<<endl;
+            return;
+        }
+        if(head==tail){
+            head=tail=NULL;
+            cout<<"List only contain one element and now it is also delete"<<endl;
+            return;
+        }
+        Node *temp=head;
+        int co=1;
+        while(co!=pos-1){
+            temp=temp->next;
+            co++;
+        }
+        Node *temp1=temp->next;
+        temp->next=temp1->next;
+        delete temp1;
     }
 
     void dispaly(){
