@@ -66,6 +66,13 @@ class Linked_lst{
         temp->next=NULL;
         delete temp2;
     }
+    void insert_at_k(int ele, int pos){
+        Node * n=new Node(ele);
+        if(head==NULL){
+            head=tail=n;
+        }
+        
+    }
 
     void dispaly(){
         Node *temp=head;
