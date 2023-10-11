@@ -59,15 +59,33 @@ int fibo(int n){
         return fibo(n-1)+fibo(n-2);
     }
 }
+int sum(int arr[],int n){
+    if(n==0){
+        return 0;
+    }
+    return arr[n-1]+sum(arr,n-1);
+}
+string rev(string str,int n){
+    if(n==0){
+        return "";
+    }
+    return str[n-1]+rev(str,n-1);
+}
 int main(){
 
-    int n,p;
-    cin>>n;
+    // int n,p;
+    // cin>>n;
     // int s=sum(n);
     // int s=print(n);
     // printIncreasing(n);
     // long long s=pow(n,p);
-    int s=fibo(n);
+    // int s=fibo(n);
+    // cout<<s<<endl;
+    // int s=0;
+    // int arr[10]={1,2,3,4,5,6,7,8,9,10};
+    // s=sum(arr,10);
+    // cout<<s;
+    string s=rev("konichiwa",9);
     cout<<s<<endl;
     return 0;
 }
