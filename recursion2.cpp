@@ -55,18 +55,27 @@ void f_and_l(int arr[],int n,int target,int &first,int &last){
         last = n - 1;
     }
 }
+int gcd(int a, int b){
+    if(b==0){
+        return a;
+    }
+    return gcd(b,a%b);
+}
 int main(){
 
-    int arr[]={1,2,3,5,1,1};
-    int s = sizeof(arr)/sizeof(arr[1]);
+    // int arr[]={1,2,3,5,1,1};
+    // int s = sizeof(arr)/sizeof(arr[1]);
     // bool ans=sorted(arr,s);
     // cout<<ans;
     // int n;cin>>n;
     // dec(n);
     // inc(n);
     int first,last;
-    f_and_l(arr,s,1,first,last);
-    cout<<first<<endl;
-    cout<<last<<endl;
+    // f_and_l(arr,s,1,first,last);
+    // cout<<first<<endl;
+    // cout<<last<<endl;
+    cin>>first>>last;
+    int ans=gcd(first,last);
+    cout<<ans;
     return 0;
 }
