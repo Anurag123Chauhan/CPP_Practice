@@ -1,16 +1,11 @@
-// Quick sort in C++
-
 #include <iostream>
 using namespace std;
 
-// function to swap elements
 void swap(int *a, int *b) {
   int t = *a;
   *a = *b;
   *b = t;
 }
-
-// function to print the array
 void printArray(int array[], int size) {
   int i;
   for (i = 0; i < size; i++)
@@ -42,8 +37,6 @@ int main() {
   
   cout << "Unsorted Array: \n";
   printArray(data, n);
-  
-  // perform quicksort on data
   quickSort(data, 0, n - 1);
   
   cout << "Sorted array in ascending order: \n";

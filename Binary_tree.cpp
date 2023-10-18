@@ -1,24 +1,24 @@
-#include<bits/stdc++.h>
-using namespace std;
+// #include<bits/stdc++.h>
+// using namespace std;
 
-struct Node{
-    int data;
-    Node *left;
-    Node *right;
-    Node(int val){
-        data=val;
-        left=right=NULL;
-    }
-};
+// struct Node{
+//     int data;
+//     Node *left;
+//     Node *right;
+//     Node(int val){
+//         data=val;
+//         left=right=NULL;
+//     }
+// };
 
-int main(){
-    struct Node* root=new Node(1);
-    root->left=new Node(2);
-    root->right=new Node(3);
-    root->left->right=new Node(5);
-    cout<<root->left->right->data;
-    return 0;
-}
+// int main(){
+//     struct Node* root=new Node(1);
+//     root->left=new Node(2);
+//     root->right=new Node(3);
+//     root->left->right=new Node(5);
+//     cout<<root->left->right->data;
+//     return 0;
+// }
 
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -64,3 +64,66 @@ int main(){
 
 //     return 0;
 // }
+#include<bits/stdc++.h>
+using namespace std;
+
+struct TreeNode{
+    int data;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int val){
+        this->data=val;
+        left=right=NULL;
+    }
+};
+TreeNode* insert(TreeNode* root,int val){
+    if(root == NULL){
+        return new TreeNode(val);
+    }
+    if(val<root->data){
+        root->left = insert(root->left,val);
+    }
+    else if(val>root->data){
+        root->right =insert(root->right,val);
+    }
+    return root;
+}
+void preorder(TreeNode* root){
+    if(root!=NULL){
+        cout<<root->data<<" ";
+        preorder(root->left);  
+        preorder(root->right);
+    }
+}
+void inorder(TreeNode* root){
+    if(root!=NULL){
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
+}
+void postorder(TreeNode* root){
+    if(root!=NULL){
+        postorder(root->left);
+        postorder(root->right);
+        cout<<root->data<<" ";
+    }
+}
+
+int main(){
+    TreeNode* root=NULL;
+    int keys[] = {50, 30, 20, 40, 70, 60, 80};
+    for (int key : keys) {
+        root = insert(root, key);
+    }
+    cout << "Inorder traversal before deletion: ";
+    inorder(root);
+    cout<<endl;
+    cout<<"Preorder traversal"<<endl;
+    preorder(root);
+    cout<<endl;
+    cout<<"Postorder traversal"<<endl;
+    postorder(root);
+
+    return 0;
+}
